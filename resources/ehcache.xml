@@ -1,0 +1,36 @@
+<ehcache>
+    <diskStore path="java.io.tmpdir"/>
+	<!-- 系统默认缓存 -->
+    <defaultCache
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+	<!-- hibernate 用到的两个命名缓存 -->
+    <cache name="org.hibernate.cache.spi.UpdateTimestampsCache"
+        maxElementsInMemory="100"
+        eternal="false"
+        timeToIdleSeconds="300"
+        timeToLiveSeconds="600"
+        overflowToDisk="true"
+        />
+
+    <cache name="org.hibernate.cache.internal.StandardQueryCache"
+        maxElementsInMemory="100"
+        eternal="true"
+        timeToIdleSeconds="0"
+        timeToLiveSeconds="0"
+        overflowToDisk="false"
+        />
+
+	<!-- 用户自定义实体缓存 -->
+    <cache name="com.bosic.news.domain.User"
+        maxElementsInMemory="100"
+        eternal="true"
+        timeToIdleSeconds="0"
+        timeToLiveSeconds="0"
+        overflowToDisk="false"
+        />
+</ehcache>
